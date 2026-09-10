@@ -10,3 +10,8 @@ Docente: Walter Hugo Arboleda Mazo
 
 ---
 
+## Código ejercicios resueltos:
+
+En el siguiente archivo encontrarás el código completo de los 5 ejercicios propuestos:
+
+* [Ejercicios](./Actividad1SantiagoAlvarezNaranjo)
