@@ -14,4 +14,4 @@ Docente: Walter Hugo Arboleda Mazo
 
 En el siguiente archivo encontrarás el código completo de los 5 ejercicios propuestos:
 
-* [Ejercicios](./Actividad1SantiagoAlvarezNaranjo)
+* [Código Ejercicios](./Actividad1SantiagoAlvarezNaranjo.py)
