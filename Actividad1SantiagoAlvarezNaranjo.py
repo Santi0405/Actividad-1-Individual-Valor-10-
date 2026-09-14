@@ -1,72 +1,99 @@
 #Actividad 1 17/09/2026
 ##Punto 1: Ejercicio número 4
-class edades:
-  def EdAlberto(EdJuan):
-    return EdJuan * (2/3)
-  def EdAna(EdJuan):
-    return EdJuan * (4/3)
-  def EdMama(EdJuan, EdAlberto, EdAna):
-    return EdJuan + EdAlberto + EdAna
-EdJuan = float(input("Ingrese la edad de Juan: "))
-EdAlberto = edades.EdAlberto(EdJuan)
-EdAna = edades.EdAna(EdJuan)
-EdMama = edades.EdMama(EdJuan, EdAlberto, EdAna)
-print(f"La edad de Juan es: {EdJuan}")
-print(f"La edad de Ana es: {EdAna: .2f}")
-print(f"La edad de Alberto es: {EdAlberto: .2f}")
-print(f"La edad de la Mama es: {EdMama: .2f}")
+class Edades:
+    def __init__(self, edad_juan):
+        self.edad_juan = edad_juan
+        self.edad_alberto = self.calcular_edad_alberto()
+        self.edad_ana = self.calcular_edad_ana()
+        self.edad_mama = self.calcular_edad_mama()
+    def calcular_edad_alberto(self):
+        return self.edad_juan * (2/3)
+    def calcular_edad_ana(self):
+        return self.edad_juan * (4/3)
+    def calcular_edad_mama(self):
+        return self.edad_juan + self.edad_alberto + self.edad_ana
+    def mostrar_edades(self):
+        print(f"La edad de Juan es: {self.edad_juan}")
+        print(f"La edad de Ana es: {self.edad_ana:.2f}")
+        print(f"La edad de Alberto es: {self.edad_alberto:.2f}")
+        print(f"La edad de la Mama es: {self.edad_mama:.2f}")
+edad_juan = float(input("Ingrese la edad de Juan: "))
+familia = Edades(edad_juan)
+familia.mostrar_edades()
 
 ##Punto 2: Ejercicio número 5
 import math
 class PruebaDeEscritorio:
-  def ejercicio():
-    suma = 0
-    x = 20
-    suma += x
-    y = 40
-    x += math.pow(y, 2)
-    suma += (x/y)
-    return suma
-suma = PruebaDeEscritorio.ejercicio()
-print(f"El valor de la suma es: {suma}")
+    def __init__(self, x_inicial=20, y_inicial=40):
+        self.x = x_inicial
+        self.y = y_inicial
+        self.suma = 0
+        self.resultado = self.ejecutar()
+    def ejecutar(self):
+        self.suma += self.x
+        self.x += math.pow(self.y, 2)
+        self.suma += (self.x / self.y)
+        return self.suma
+    def mostrar_resultado(self):
+        print(f"El valor de la suma es: {self.resultado}")
+prueba = PruebaDeEscritorio()
+prueba.mostrar_resultado()
 
 ##Punto 3: Ejercicio número 12
 class Salario:
-  def InfEmpleado():
-    horas = 48
-    valhora = 5000
-    prf = 0.125
-    salariob = float(horas * valhora)
-    retf = salariob * prf
-    salarion = salariob - retf
-    return salariob, retf, salarion
-salariob, retf, salarion = Salario.InfEmpleado()
-print(f"El salario bruto es: {salariob}")
-print(f"El valor de retención es: {retf}")
-print(f"El salario neto es: {salarion}")
+    def __init__(self, horas, valhora, porcentaje_retencion=0.125):
+        self.horas = horas
+        self.valhora = valhora
+        self.porcentaje_retencion = porcentaje_retencion
+        self.salario_bruto = self.calcular_salario_bruto()
+        self.retencion = self.calcular_retencion()
+        self.salario_neto = self.calcular_salario_neto()
+    def calcular_salario_bruto(self):
+        return float(self.horas * self.valhora)
+    def calcular_retencion(self):
+        return self.salario_bruto * self.porcentaje_retencion
+    def calcular_salario_neto(self):
+        return self.salario_bruto - self.retencion
+    def mostrar_resultados(self):
+        print(f"El salario bruto es: {self.salario_bruto}")
+        print(f"El valor de retención es: {self.retencion}")
+        print(f"El salario neto es: {self.salario_neto}")
+empleado = Salario(48, 5000)
+empleado.mostrar_resultados()
 
 ##Punto 4: Ejercicio número 14
 import math
 class Numero:
-  def cuadrado(numero):
-    return math.pow(numero, 2)
-  def cubo(numero):
-    return math.pow(numero, 3)
-numero = float(input("Ingrese un número: "))
-cuadrado = Numero.cuadrado(numero)
-cubo = Numero.cubo(numero)
-print(f"El cuadrado del número ingresado es: {cuadrado}")
-print(f"El cubo del número ingresado es: {cubo}")
+  def __init__(self, numero):
+    self.numero = numero
+    self.cuadrado = self.calcular_cuadrado()
+    self.cubo = self.calcular_cubo()
+  def calcular_cuadrado(self):
+    return math.pow(self.numero, 2)
+  def calcular_cubo(self):
+    return math.pow(self.numero, 3)
+  def mostrar_resultados(self):
+    print(f"El número ingresado es: {self.numero}")
+    print(f"El cuadrado del número es: {self.cuadrado}")
+    print(f"El cubo del número es: {self.cubo}")
+num1 = float(input("Ingrese un número: "))
+num1 = Numero(num1)
+num1.mostrar_resultados()
 
 ##Punto 5: Ejercicio número 17
 import math
-class Circulo():
-  def area(radio):
-    return math.pi * math.pow(radio, 2)
-  def perimetro(radio):
-    return 2 * math.pi * radio
+class Circulo:
+  def __init__(self, radio):
+    self.radio = radio
+    self.area = self.calcular_area()
+    self.perimetro = self.calcular_perimetro()
+  def calcular_area(self):
+    return math.pi * math.pow(self.radio, 2)
+  def calcular_perimetro(self):
+    return 2 * math.pi * self.radio
+  def mostrar_resultados(self):
+    print(f"El área del círculo es: {self.area}")
+    print(f"El perímetro del círculo es: {self.perimetro}")
 radio = float(input("Ingrese el radio del círculo: "))
-area = Circulo.area(radio)
-perimetro = Circulo.perimetro(radio)
-print(f"El área del círculo es: {area: .3f}")
-print(f"El perímetro del círculo es: {perimetro: .3f}")
+circulo = Circulo(radio)
+circulo.mostrar_resultados()
